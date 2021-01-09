@@ -1,12 +1,35 @@
 from math import factorial
-def x(a):
+from time import *
+
+def check(inp_letter,word):
+ 
     try:
-        return factorial(a)
+        if len(inp_letter) > 1:
+            raise ValueError
+                
+        elif inp_letter in word:
+            
+            return True
+
+        else:
+            return False
+
+        for x in range(len(word)):
+            if word[x] == inp_letter:
+                word = word[:x] + word[x+1:]
     except:
-        print('enter a +ve number: ')
-        a = int(input("...."))
-        return x(a)
-a = int(input("...."))
-print(x(a))
+        inp_letter = input("enter a single letter: ")
+        return check(inp_letter,word)
+
+terminate = False
+tries = 7
+while tries:
+    inp_letter = input("enter letter: ")
+    print(check(inp_letter,"test"))
+    
+    if check(inp_letter,"test") == False:
+        tries -= 1
+else:
+    print("out of tries sorry ")
 
 
