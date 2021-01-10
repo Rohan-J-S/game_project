@@ -1,34 +1,36 @@
 
-from time import *
-
 def check(inp_letter,word):
- 
-    try:
-        if len(inp_letter) > 1:
-            raise ValueError
-                
-        elif inp_letter in word:
-            
-            return True
+
+        if inp_letter in word:
+            return word.count(inp_letter)
 
         else:
             return False
 
-        for x in range(len(word)):
-            if word[x] == inp_letter:
-                word = word[:x] + word[x+1:]
-    except:
-        inp_letter = input("enter a single letter: ")
-        return check(inp_letter,word)
-
 terminate = False
 tries = 7
+letters_left = 0
+
 while tries:
-    inp_letter = input("enter letter: ")
-    print(check(inp_letter,"test"))
+    inp_letter = input("enter a single letter: ")
+
+    if len(inp_letter)>1:
+        print("you entered an invalid input ")
+        continue
+
+    a = check(inp_letter,"test")
+    print(a)
     
-    if check(inp_letter,"test") == False:
+    if a == False:
         tries -= 1
-    print(tries, "tries left")
+        print(tries, "tries left")
+
+    elif a:
+        letters_left += check(inp_letter,"test")
+        print(letters_left)
+
+    if letters_left == 4:
+        print("you got the word ")
+        break
 else:
     print("out of tries sorry ")
