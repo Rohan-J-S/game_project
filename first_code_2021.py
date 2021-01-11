@@ -12,7 +12,7 @@ entered_letters = set()
 while tries:
     inp_letter = input("enter a single letter: ")
     
-
+    
     if inp_letter == "guess":
         inp_letter = input("enter the word: ")
 
@@ -21,14 +21,17 @@ while tries:
             break
         else:
             print("sorry thats not the word")
+            print()
             continue
 
     elif len(inp_letter)>1 or inp_letter == "":
         print("you entered an invalid input ")
+        print()
         continue
 
     elif inp_letter in entered_letters:
         print("you have aldready entered that letter: ")
+        print()
         continue
 
     entered_letters.add(inp_letter)
@@ -38,10 +41,12 @@ while tries:
     if a == False:
         tries -= 1
         print(tries, "tries left")
+        print()
 
     elif a:
         letters_left += a
         print(letters_left)
+        print()
         
 
     if letters_left == 4:
