@@ -1,4 +1,9 @@
+from decrypter_project import decrypt
+x = open("movie_list.txt","r")
+text = x.readlines()
 
+dec = decrypt(text)
+dec_2 = decrypt(dec)
 
 
 print("welcome to hangman.  ............ . enter guess when you think you are ready to guess the word")
@@ -7,7 +12,6 @@ terminate = False
 tries = 7
 letters_left = 0
 entered_letters = set()
-
 
 while tries:
     inp_letter = input("enter a single letter: ")
