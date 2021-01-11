@@ -9,4 +9,3 @@ def decrypt(text):
             s += dec_key[text[y][z]]
         text[y] = s
     return text
-print(decrypt(['hxatqabr ', 'etsawfect', 'nltuebu']))
