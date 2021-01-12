@@ -3,6 +3,7 @@ import time
 import threading
 
 
+
 x = open("movie_list.txt","r")
 text = x.readlines()
 
@@ -17,8 +18,8 @@ def timer():
         ctdn -= 1
         #remove once game func added in while
         time.sleep(1)
-    else:
-        raise ValueError("time up lmao")
+    exit
+    
 
 
 print("welcome to hangman.  ............ . enter guess when you think you are ready to guess the word")
@@ -31,9 +32,13 @@ def game():
     letters_left = 0
     entered_letters = set()
 
+
     while tries:
-        inp_letter = input("enter a single letter: ")
         
+        inp_letter = input("enter a single letter: ")
+
+        if stop:
+            break
         
         if inp_letter == "guess":
             inp_letter = input("enter the word: ")
@@ -74,15 +79,20 @@ def game():
         if letters_left == 4:
             print("you got the word ")
             break
+
+        
     else:
         print("out of tries sorry ")
 
-try:  
-    th_func = threading.Thread(target = timer)
-    game_func = threading.Thread(target = game)
 
-    th_func.start()
-    game_func.start()
-except ValueError:
-    print("sorry time up")
+stop = False
+th_func = threading.Thread(target = timer)
+game_func = threading.Thread(target = game)
 
+th_func.start()
+game_func.start()
+
+th_func.join()
+stop = True
+
+print("\n time up \n press enter to continue")
