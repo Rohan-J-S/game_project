@@ -31,6 +31,7 @@ def game():
     tries = 7
     letters_left = 0
     entered_letters = set()
+    word = "test hello"
 
 
     while tries:
@@ -43,7 +44,7 @@ def game():
         if inp_letter == "guess":
             inp_letter = input("enter the word: ")
 
-            if inp_letter == "test":
+            if inp_letter == word:
                 print("you got the word")
                 break
             else:
@@ -51,7 +52,7 @@ def game():
                 print()
                 continue
 
-        elif len(inp_letter)>1 or inp_letter == "":
+        elif len(inp_letter)>1 or inp_letter == "" or inp_letter == " ":
             print("you entered an invalid input ")
             print()
             continue
@@ -62,8 +63,8 @@ def game():
             continue
 
         entered_letters.add(inp_letter)
-        a = "test".count(inp_letter)
-        print(a)
+        a = word.count(inp_letter)
+        print("letter occours",a,"times")
         
         if a == False:
             tries -= 1
@@ -72,11 +73,11 @@ def game():
 
         elif a:
             letters_left += a
-            print(letters_left)
+            print(len(word)-word.count(" ")-letters_left,"letters left")
             print()
             
 
-        if letters_left == 4:
+        if letters_left == len(word)-word.count(" "):
             print("you got the word ")
             break
 
