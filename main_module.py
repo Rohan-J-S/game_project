@@ -1,7 +1,7 @@
 from decrypter_project import decrypt
 from time import sleep
 from threading import Thread
-
+from random import randrange
 
 
 x = open("movie_list.txt","r")
@@ -9,6 +9,9 @@ text = x.readlines()
 
 dec = decrypt(text)
 dec_2 = decrypt(dec)
+
+ind = randrange(0,len(dec))
+word = dec_2[ind]
 
 def timer():
     global ctdn
@@ -88,7 +91,7 @@ def game(word):
 
 stop = False
 th_func = Thread(target = timer)
-game_func = Thread(target = game,args = ("test hello",))
+game_func = Thread(target = game,args = (word,))
 
 th_func.start()
 game_func.start()
