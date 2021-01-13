@@ -26,12 +26,12 @@ print("welcome to hangman.  ............ . enter guess when you think you are re
 
 
 
-def game():
+def game(word):
     
     tries = 7
     letters_left = 0
     entered_letters = set()
-    word = "test hello"
+   
 
 
     while tries:
@@ -52,7 +52,7 @@ def game():
                 print()
                 continue
 
-        elif len(inp_letter)>1 or inp_letter == "" or inp_letter == " ":
+        elif len(inp_letter)>1 or inp_letter == "" or inp_letter == " " or not inp_letter.isalpha():
             print("you entered an invalid input ")
             print()
             continue
@@ -88,7 +88,7 @@ def game():
 
 stop = False
 th_func = Thread(target = timer)
-game_func = Thread(target = game)
+game_func = Thread(target = game,args = ("test hello",))
 
 th_func.start()
 game_func.start()
