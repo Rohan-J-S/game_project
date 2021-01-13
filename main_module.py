@@ -1,6 +1,6 @@
 from decrypter_project import decrypt
-import time
-import threading
+from time import sleep
+from threading import Thread
 
 
 
@@ -17,7 +17,7 @@ def timer():
     for i in range(temp,0,-1):
         ctdn -= 1
         #remove once game func added in while
-        time.sleep(1)
+        sleep(1)
     exit
     
 
@@ -87,8 +87,8 @@ def game():
 
 
 stop = False
-th_func = threading.Thread(target = timer)
-game_func = threading.Thread(target = game)
+th_func = Thread(target = timer)
+game_func = Thread(target = game)
 
 th_func.start()
 game_func.start()
