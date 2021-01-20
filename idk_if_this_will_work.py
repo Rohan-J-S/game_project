@@ -76,15 +76,8 @@ dec_2 = decrypt(dec)
 ind = randrange(0,len(dec))
 word = dec_2[ind]
 
-def timer():
-    global ctdn
-    ctdn = 20 #number of seconds +1
-    temp = ctdn
-    for i in range(temp,0,-1):
-        ctdn -= 1
-        #remove once game func added in while
-        sleep(1)
-    exit
+
+
     
 
 print("welcome to hangman.  ............ . enter guess when you think you are ready to guess the word. All input mjust be given in lowercase. ")
@@ -151,15 +144,14 @@ def game(word):
 
 
 stop = False
-th_func = Thread(target = timer)
 game_func = Thread(target = game,args = (word,))
 animation_func = Thread(target = animation)
 
-th_func.start()
+
 game_func.start()
 animation_func.start()
 
-th_func.join()
+animation_func.join()
 stop = True
 
 print("\n time up \n press enter to continue")
