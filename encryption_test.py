@@ -1,7 +1,7 @@
 from random import randrange
 def encrypt():
 
-    x = open("tt.txt","r")
+    x = open("movie_list.txt","r")
     text = x.readlines()
 
     values = list(range(32,65+27+32))
@@ -23,9 +23,12 @@ def encrypt():
         text[y] = s+"\n"
     x.close()
 
-    f = open("tt.txt","w")
+    f = open("movie_list.txt","w")
     for b in text:
         f.write(b)
-    
+
+    key_file = open("key.txt","w+")
+    for value in key.values():
+        key_file.write(str(value) + "\n")
 encrypt()
 
