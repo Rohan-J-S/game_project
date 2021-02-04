@@ -1,4 +1,4 @@
-def decrypt():
+def decrypt(text):
     y = open("key.txt","r")
     keys = y.readlines()
 
@@ -10,13 +10,11 @@ def decrypt():
         asci += 1
 
     y.close()
+    print(rev_dict)
 
     h = open("key.txt","w")
     h.write("")
     h.close()
-
-    x = open("tt.txt","r")
-    text = x.readlines()
 
     for d in range(len(text)):
         s = ""
@@ -26,7 +24,18 @@ def decrypt():
             s += rev_dict[ord(text[d][z])]
            
         text[d] = s
-    x.close()
+    
     return text
 
-decrypt()
+
+
+def decrypt_file(text):
+    x = open("movie_list.txt","w")
+    for y in text:
+        print(y)
+        x.write(y)
+        x.write("\n")
+
+
+
+
