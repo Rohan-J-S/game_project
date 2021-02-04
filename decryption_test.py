@@ -10,7 +10,7 @@ def decrypt(text):
         asci += 1
 
     y.close()
-    print(rev_dict)
+    
 
     h = open("key.txt","w")
     h.write("")
@@ -25,8 +25,8 @@ def decrypt(text):
            
         text[d] = s
     
-    return text
-
+   
+    return (text)
 
 
 def decrypt_file(text):
@@ -35,6 +35,7 @@ def decrypt_file(text):
         print(y)
         x.write(y)
         x.write("\n")
+
 
 
 

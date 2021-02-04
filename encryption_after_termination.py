@@ -12,7 +12,6 @@ def encrypt():
         key[chr(letter)] = values[val]
         values.pop(val)
 
-    
 
     for y in range(len(text)):
         s = ""
@@ -30,4 +29,3 @@ def encrypt():
     key_file = open("key.txt","w+")
     for value in key.values():
         key_file.write(str(value) + "\n")
-encrypt()

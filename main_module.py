@@ -1,9 +1,11 @@
+  
 from decryption_test import decrypt
 from random import randrange
 
 def word():
     x = open("movie_list.txt","r")
     text = x.readlines()
+
 
     global dec_2 
     dec_2 = decrypt(text)
